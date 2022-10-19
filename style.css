@@ -142,7 +142,7 @@ header:hover {
     font-style: italic;
     color: rgb(0, 0, 231);
     text-shadow: 2px 2px 0 rgb(255, 225, 0);
-    gap: calc(0.4*var(--rvv));
+    gap: 10px;
 }
 
 .content {
