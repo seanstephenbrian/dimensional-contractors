@@ -22,6 +22,14 @@ time, mark, audio, video {
 :root {
     --rvv: calc(1rem + 1vh + 1vw);
     --square-width: calc(var(--rvv) + 50px);
+    --flw-blue: #1e4d6c;
+    --flw-yellow: #e1b270;
+    --header-margin: 1.5rem;
+}
+
+@font-face {
+    font-family: 'Sublima';
+    src: url('font/sublima/sublima-light.otf');
 }
 
 .grid-container {
@@ -38,20 +46,80 @@ time, mark, audio, video {
         "content square-y nav";
 }
 
+.square-overlap {
+    position: absolute;
+    top: calc(3*var(--rvv));
+    right: 25%;
+    background-color: var(--flw-blue);
+    width: var(--square-width);
+    height: var(--square-width);
+    z-index: 2;
+}
+
 .square-x {
     grid-area: square-x;
-    border: 1px solid blue;
+    background-color: var(--flw-blue);
+    display: grid;
+    grid-template: 1fr / repeat(80, 1fr);
+}
+
+.square-x-odd,
+.square-x-even {
+    align-self: end;
+}
+
+.square-x-odd {
+    width: 2px;
+    height: 20%;
+    background-color: white;
+}
+
+.square-x-even {
+    height: 40%;
+    width: 2px;
+    background-color: white;
 }
 
 .square-y {
+    position: relative;
     grid-area: square-y;
-    border: 1px solid red;
+    background-color: var(--flw-blue);
+    display: grid;
+    grid-template: repeat(30, 1fr) / 1fr;
+}
+
+.square-y-odd {
+    height: 2px;
+    width: 20%;
+    background-color: white;
+}
+
+.square-y-even {
+    height: 2px;
+    width: 40%;
+    background-color: white;
 }
 
 header {
     grid-area: header;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 var(--header-margin) var(--header-margin);
+    font-family: 'Sublima';
+}
+
+h1 {
+    font-size: calc(var(--rvv));
+}
+
+h2 {
+    font-size: calc(0.5*var(--rvv));
 }
 
 .content {
     grid-area: content;
+}
+
+.nav {
+    grid-area: nav;
 }
