@@ -27,6 +27,10 @@ time, mark, audio, video {
     --header-margin: 1.5rem;
 }
 
+html, body {
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: 'Sublima';
     src: url('font/sublima/sublima-light.otf');
@@ -61,6 +65,7 @@ time, mark, audio, video {
     background-color: var(--flw-blue);
     display: grid;
     grid-template: 1fr / repeat(80, 1fr);
+    border: 2px solid black;
 }
 
 .square-x-odd,
@@ -80,12 +85,21 @@ time, mark, audio, video {
     background-color: white;
 }
 
+.square-overlap {
+    box-sizing: border-box;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 0;
+}
+
 .square-y {
     position: relative;
     grid-area: square-y;
     background-color: var(--flw-blue);
     display: grid;
     grid-template: repeat(30, 1fr) / 1fr;
+    border: 2px solid black;
 }
 
 .square-y-odd {
