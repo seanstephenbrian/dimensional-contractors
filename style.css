@@ -24,7 +24,6 @@ time, mark, audio, video {
     --square-width: calc(var(--rvv) + 50px);
     --flw-blue: #1e4d6c;
     --flw-orange: #e1b270;
-    --header-margin: 1.5rem;
     --header-padding: calc(.3*var(--rvv));
 }
 
@@ -59,6 +58,11 @@ html, body {
     width: var(--square-width);
     height: var(--square-width);
     z-index: 2;
+    box-sizing: border-box;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 0;
 }
 
 .square-x,
@@ -98,16 +102,6 @@ html, body {
     background-color: white;
 }
 
-.square-overlap {
-    box-sizing: border-box;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
-    border-left: 2px solid black;
-    border-bottom: 0;
-}
-
-
-
 .square-y-odd {
     height: 2px;
     width: 20%;
@@ -121,7 +115,6 @@ html, body {
 }
 
 header {
-    padding: 0 0 var(--header-padding) var(--header-padding);
     width: 100vw;
     grid-area: header;
     display: flex;
@@ -132,10 +125,13 @@ header {
 }
 
 h1 {
+    padding-left: var(--header-padding);
     font-size: calc(var(--rvv));
 }
 
 h2 {
+    padding-left: var(--header-padding);
+    padding-bottom: var(--header-padding);
     position: relative;
     left: calc(.07*var(--rvv));
     font-size: calc(0.5*var(--rvv));
