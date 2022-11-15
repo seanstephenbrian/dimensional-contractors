@@ -31,7 +31,7 @@ const Page = (function() {
     (function fillFooterText() {
         const year = new Date().getFullYear();
         const footer = document.querySelector('footer');
-        footer.textContent = `Copyright © Dimensional Contractors ${year}`;
+        footer.textContent = `copyright © dimensional contractors ${year}`;
     })();
 
     (function addInitialListeners() {
@@ -95,8 +95,8 @@ const Page = (function() {
     }
 
         function addHomeListeners() {
-            // add click listener to 'contact us today' button:
-            const contactUs = document.querySelector('.contact-button');
+            // add click listener to 'contact us' inline link:
+            const contactUs = document.querySelector('.inline-contact');
             contactUs.addEventListener('click', renderContact);
         }
 
