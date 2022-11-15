@@ -83,7 +83,14 @@ const Page = (function() {
     function renderHome() {
         clearContent();
         content.classList.add('home-content');
-        fillContent('html/home.html');
+        fillContent('html/home.html')
+            .then(addHomeListeners);
+    }
+
+    function addHomeListeners() {
+        // add click listener to 'contact us today' button:
+        const contactUs = document.querySelector('.contact-button');
+        contactUs.addEventListener('click', renderContact);
     }
 
     function renderCommercial() {

@@ -146,15 +146,17 @@ h2 {
     font-family: 'Sublima';
     background-color: var(--nav-button-bg);
     width: fit-content;
-    font-size: 0.75rem;
+    font-size: calc(0.6*var(--rvv));
     border: none;
-    padding: 0.1rem 0.4rem 0.3rem;
+    margin: calc(0.3*var(--rvv)) 0;
+    padding: calc(0.3*var(--rvv));
+    padding-bottom: calc(0.4*var(--rvv));
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     box-shadow: var(--mobile-shadow);
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
 }
 
 footer {
@@ -236,10 +238,15 @@ footer {
         justify-content: center;
         align-items: center;
         box-shadow: var(--desktop-shadow);
+    }
+
+    .contact-button,
+    .nav-button {
         transition: transform 0.15s ease-in-out;
     }
 
-    .nav-button:hover {
+    .nav-button:hover,
+    .contact-button:hover {
         transform: scale(1.1);
     }
 
