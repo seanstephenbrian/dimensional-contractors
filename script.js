@@ -62,9 +62,9 @@ const Page = (function() {
 
     function addSliderListeners() {
         const back = document.querySelector('.back');
-        back.addEventListener('click', goBack);
+        back.addEventListener('click', Photos.goBack);
         const forward = document.querySelector('.forward');
-        forward.addEventListener('click', goForward);
+        forward.addEventListener('click', Photos.goForward);
     }
 
     function clearContent() {
@@ -120,6 +120,8 @@ const Page = (function() {
             caption.textContent = commercialPhotos[0].caption;
             const photo = document.querySelector('.photo');
             photo.src = commercialPhotos[0].src;
+            photo.dataset.id = 0;
+            photo.dataset.category = 'commercial';
         }
     
     function renderResidential() {
@@ -167,16 +169,68 @@ const Photos = (function() {
         photos.push(newPhoto);
     }
 
-    // all photos:
-    addPhoto('pags-ext.jpg', `Pag's Wine Bar (Doylestown, PA)`, 'commercial');
-    addPhoto('pags-int.jpg', `Pag's Pub (Doylestown, PA)`, 'commercial');
-    addPhoto('pags-int-2.jpg', `Pag's Pub (Doylestown, PA)`, 'commercial');
-
     function getPhotoList() {
         return photos;
     }
 
-    return { getPhotoList }
+    function goBack() {
+        const currentPhoto = document.querySelector('.photo');
+        const currentCategory = currentPhoto.dataset.category;
+        const allCategoryPhotos = photos.filter(photo => {
+            if (photo.category === currentCategory) {
+                return true;
+            }
+            return false;
+        });
+        const currentPhotoIndex = parseInt(currentPhoto.dataset.id);
+        let nextPhotoIndex;
+        if (currentPhotoIndex === 0) {
+            nextPhotoIndex = allCategoryPhotos.length - 1;
+        } else {
+            nextPhotoIndex = currentPhotoIndex - 1;
+        }
+        const nextPhoto = allCategoryPhotos[nextPhotoIndex];
+        currentPhoto.src = nextPhoto.src;
+        currentPhoto.dataset.id = nextPhotoIndex;
+        const caption = document.querySelector('.photo-caption');
+        caption.textContent = nextPhoto.caption;
+    }
+
+    function goForward() {
+        const currentPhoto = document.querySelector('.photo');
+        const currentCategory = currentPhoto.dataset.category;
+        const allCategoryPhotos = photos.filter(photo => {
+            if (photo.category === currentCategory) {
+                return true;
+            }
+            return false;
+        });
+        const currentPhotoIndex = parseInt(currentPhoto.dataset.id);
+        let nextPhotoIndex;
+        if (currentPhotoIndex + 1 === allCategoryPhotos.length) {
+            nextPhotoIndex = 0;
+        } else {
+            nextPhotoIndex = currentPhotoIndex + 1;
+        }
+        const nextPhoto = allCategoryPhotos[nextPhotoIndex];
+        currentPhoto.src = nextPhoto.src;
+        currentPhoto.dataset.id = nextPhotoIndex;
+        const caption = document.querySelector('.photo-caption');
+        caption.textContent = nextPhoto.caption;
+    }
+
+    // all photos:
+    addPhoto('pags-ext.jpg', `Pag's Wine Bar (Doylestown, PA)`, 'commercial');
+    addPhoto('pags-int.jpg', `Pag's Pub (Doylestown, PA)`, 'commercial');
+    addPhoto('pags-int-2.jpg', `Pag's Pub (Doylestown, PA)`, 'commercial');
+    addPhoto('santucci.jpg', `Santucci's Square Pizza (Warminster, PA)`, 'commercial');
+    addPhoto('serenity.jpg', `Serenity Day Spa (Doylestown, PA)`, 'commercial');
+
+    return { 
+        getPhotoList,
+        goBack,
+        goForward
+    }
 
 })();
 
