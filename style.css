@@ -32,7 +32,10 @@ time, mark, audio, video {
     --flw-blue: #1e4d6c;
     --flw-orange: #e1b270;
 
-    --header-nav-bg: #006db631;
+    --light-blue: #006db631;
+    --lighter-blue: #006db613;
+    --darker-blue: #005f9f80;
+    --content-bg: #ff95001a;
     --nav-button-bg: #fddbab;
 }
 
@@ -46,6 +49,11 @@ html, body {
 @font-face {
     font-family: 'Sublima';
     src: url('font/sublima/sublima-light.otf');
+}
+
+.bold {
+    font-weight: 900;
+    font-family: 'Helvetica';
 }
 
 .grid-container {
@@ -67,7 +75,8 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background-color: var(--header-nav-bg);
+    background-color: var(--light-blue);
+    top: 0;
 }
 
 h1 {
@@ -78,8 +87,7 @@ h1 {
 
 h2 {
     padding-left: var(--header-padding);
-    /* padding-bottom: var(--header-padding); */
-    position: relative;
+    padding-bottom: var(--header-padding);
 }
 
 .nav {
@@ -88,7 +96,7 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--header-nav-bg);
+    background-color: var(--light-blue);
     /* margin-bottom: calc(var(--rvv)); */
 }
 
@@ -120,12 +128,39 @@ h2 {
 
 .content {
     grid-area: content;
+    background-color: var(--lighter-blue);
+}
+
+.para {
+    font-size: calc(0.48*var(--rvv));
+    margin: calc(0.4*var(--rvv));
+}
+
+.contact-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-button {
+    font-family: 'Sublima';
+    background-color: var(--nav-button-bg);
+    width: fit-content;
+    font-size: 0.75rem;
+    border: none;
+    padding: 0.1rem 0.4rem 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: var(--mobile-shadow);
+    border-radius: 0.3rem;
 }
 
 footer {
     padding: calc(0.2*var(--rvv)) 0;
     border-top: 1px solid var(--flw-blue);
-    background-color: var(--header-nav-bg);
+    background-color: var(--darker-blue);
     font-size: 0.8rem;
     display: flex;
     justify-content: center;
@@ -178,7 +213,7 @@ footer {
     }
 
     .nav {
-        background-color: var(--header-nav-bg);
+        background-color: var(--light-blue);
         display: initial;
     }
 

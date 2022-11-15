@@ -31,7 +31,7 @@ const Page = (function() {
     (function fillFooterText() {
         const year = new Date().getFullYear();
         const footer = document.querySelector('footer');
-        footer.textContent = `Copyright © Dimensional Contractors Inc. ${year}`;
+        footer.textContent = `Copyright © Dimensional Contractors ${year}`;
     })();
 
     (function addPageListeners() {
@@ -62,54 +62,61 @@ const Page = (function() {
 
     function clearContent() {
         content.innerHTML = '';
+        content.className = '';
+        content.classList.add('content');
+    }
+
+    async function fillContent(src) {
+        await fetch(src)
+            .then((response) => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    throw new Error('Could not retrieve page content.')
+                }})
+            .then(pageContent => content.innerHTML = pageContent)
+            .catch((err) => {
+                content.innerHTML = err;
+            });
     }
 
     function renderHome() {
         clearContent();
-
-        content.innerHTML = 'home';
+        content.classList.add('home-content');
+        fillContent('html/home.html');
     }
 
     function renderCommercial() {
         clearContent();
-
-        content.innerHTML = 'commercial';
+        content.classList.add('commercial-content');
+        fillContent('html/commercial.html');
     }
     
     function renderResidential() {
         clearContent();
-
-        content.innerHTML = 'residential';
+        content.classList.add('residential-content');
+        fillContent('html/residential.html');
     }
     
     function renderPortfolio() {
         clearContent();
-
-        content.innerHTML = 'portfolio';
+        content.classList.add('portfolio-content');
+        fillContent('html/portfolio.html');
     }
     
     function renderStory() {
         clearContent();
-
-        content.innerHTML = 'story';
+        content.classList.add('story-content');
+        fillContent('html/story.html');
     }
     
     function renderContact() {
         clearContent();
-
-        content.innerHTML = 'contact';
-    
+        content.classList.add('contact-content');
+        fillContent('html/contact.html');
     }
 
-    return {
-        renderHome,
-        renderCommercial,
-        renderResidential,
-        renderPortfolio,
-        renderStory,
-        renderContact
-    }
-
+    return { renderHome }
 })();
 
 Page.renderHome();
