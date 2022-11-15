@@ -159,6 +159,10 @@ h2 {
     border-radius: 0.5rem;
 }
 
+.photo {
+    width: 100%;
+}
+
 footer {
     padding: calc(0.2*var(--rvv)) 0;
     border-top: 1px solid var(--flw-blue);
