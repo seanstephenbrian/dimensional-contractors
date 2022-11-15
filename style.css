@@ -73,6 +73,7 @@ header {
 h1 {
     font-size: calc(0.8*var(--rvv));
     padding-left: var(--header-padding);
+    cursor: pointer;
 }
 
 h2 {
