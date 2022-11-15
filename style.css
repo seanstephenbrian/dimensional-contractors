@@ -129,11 +129,13 @@ h2 {
 .content {
     grid-area: content;
     background-color: var(--lighter-blue);
+    display: flex;
+    flex-direction: column;
 }
 
-.para {
-    font-size: calc(0.48*var(--rvv));
-    margin: calc(0.4*var(--rvv));
+p {
+    font-size: calc(0.4*var(--rvv));
+    margin: calc(0.4*var(--rvv)) calc(0.4*var(--rvv)) 0;
 }
 
 .contact-us {
@@ -159,9 +161,50 @@ h2 {
     border-radius: 0.5rem;
 }
 
+.slider {
+    align-self: center;
+    max-width: 85%;
+    margin: calc(0.4*var(--rvv));
+    margin-top: calc(var(--rvv));
+    display: flex;
+    flex-direction: column;
+}
+
 .photo {
     width: 100%;
+    max-height: 100%;
+    border: 1px solid black;
+    border-radius: 1rem;
+    box-shadow: var(--desktop-shadow);
 }
+
+.control-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.photo-caption {
+    font-size: calc(0.4*var(--rvv));
+    font-style: italic;
+}
+
+.photo-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.back,
+.forward {
+    height: calc(0.6*var(--rvv));
+}
+
+.back img,
+.forward img {
+    height: 100%;
+    cursor: pointer;
+}
+
 
 footer {
     padding: calc(0.2*var(--rvv)) 0;
@@ -232,7 +275,8 @@ footer {
     }
 
     .nav-button {
-        width: 8rem;
+        min-width: calc(3*var(--rvv));
+        width: 3rem;
         max-width: 85%;
         height: 4rem;
         font-size: 1.2rem;
@@ -331,6 +375,10 @@ footer {
         height: 2px;
         width: 40%;
         background-color: white;
+    }
+
+    .slider {
+        max-width: 500px;
     }
 
     footer {

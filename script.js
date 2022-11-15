@@ -34,7 +34,7 @@ const Page = (function() {
         footer.textContent = `Copyright © Dimensional Contractors ${year}`;
     })();
 
-    (function addPageListeners() {
+    (function addInitialListeners() {
 
         // return home if visitor clicks on logo:
         const h1 = document.querySelector('h1');
@@ -59,6 +59,13 @@ const Page = (function() {
         contact.addEventListener('click', renderContact);
         
     })();
+
+    function addSliderListeners() {
+        const back = document.querySelector('.back');
+        back.addEventListener('click', goBack);
+        const forward = document.querySelector('.forward');
+        forward.addEventListener('click', goForward);
+    }
 
     function clearContent() {
         content.innerHTML = '';
@@ -87,17 +94,33 @@ const Page = (function() {
             .then(addHomeListeners);
     }
 
-    function addHomeListeners() {
-        // add click listener to 'contact us today' button:
-        const contactUs = document.querySelector('.contact-button');
-        contactUs.addEventListener('click', renderContact);
-    }
+        function addHomeListeners() {
+            // add click listener to 'contact us today' button:
+            const contactUs = document.querySelector('.contact-button');
+            contactUs.addEventListener('click', renderContact);
+        }
 
     function renderCommercial() {
         clearContent();
         content.classList.add('commercial-content');
-        fillContent('html/commercial.html');
+        fillContent('html/commercial.html')
+            .then(loadFirstCommercialImage)
+            .then(addSliderListeners);
     }
+
+        function loadFirstCommercialImage() {
+            const photos = Photos.getPhotoList();
+            const commercialPhotos = photos.filter(photo => {
+                if (photo.category === 'commercial') {
+                    return true;
+                } 
+                return false;
+            });
+            const caption = document.querySelector('.photo-caption');
+            caption.textContent = commercialPhotos[0].caption;
+            const photo = document.querySelector('.photo');
+            photo.src = commercialPhotos[0].src;
+        }
     
     function renderResidential() {
         clearContent();
@@ -125,5 +148,37 @@ const Page = (function() {
 
     return { renderHome }
 })();
+
+const Photos = (function() {
+
+    // create empty array for photo objects:
+    let photos = [];
+
+    // object constructor for new photos;
+    function Photo(src, caption, category) {
+        this.src = src;
+        this.caption = caption;
+        this.category = category
+    }
+
+    // method to create new photo and add it to 'photos' array:
+    function addPhoto(src, caption, category) {
+        const newPhoto = new Photo(`img/photos/${src}`, caption, category);
+        photos.push(newPhoto);
+    }
+
+    // all photos:
+    addPhoto('pags-ext.jpg', `Pag's Wine Bar (Doylestown, PA)`, 'commercial');
+    addPhoto('pags-int.jpg', `Pag's Pub (Doylestown, PA)`, 'commercial');
+    addPhoto('pags-int-2.jpg', `Pag's Pub (Doylestown, PA)`, 'commercial');
+
+    function getPhotoList() {
+        return photos;
+    }
+
+    return { getPhotoList }
+
+})();
+
 
 Page.renderHome();
