@@ -13,8 +13,6 @@ function createXLines() {
     }
 }
 
-createXLines();
-
 function createYLines() {
     for (let i=0; i<30; i++) {
         const newDiv = document.createElement('div');
@@ -27,4 +25,5 @@ function createYLines() {
     }
 }
 
+createXLines();
 createYLines();
