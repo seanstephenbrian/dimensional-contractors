@@ -25,5 +25,12 @@ function createYLines() {
     }
 }
 
+function fillFooterText() {
+    const year = new Date().getFullYear();
+    const footer = document.querySelector('footer');
+    footer.textContent = `Copyright © Dimensional Contractors Inc. ${year}`;
+}
+
 createXLines();
 createYLines();
+fillFooterText();

@@ -24,6 +24,7 @@ time, mark, audio, video {
 
     --square-width: calc(var(--rvv) + 50px);
     --header-padding: calc(.3*var(--rvv));
+    --nav-height: calc(1.6*var(--rvv));
 
     --desktop-shadow: 1.6px 3.2px 3.2px hsl(0deg 0% 0% / 0.45);
     --mobile-shadow: 0.8px 1.6px 1.6px hsl(0deg 0% 0% / 0.45);
@@ -53,7 +54,7 @@ html, body {
     width: 100vw;
     max-width: 100vw;
     display: grid;
-    grid-template-rows: calc(3*var(--rvv)) calc(2*var(--rvv)) 1fr;
+    grid-template-rows: calc(2.5*var(--rvv)) var(--nav-height) 1fr;
     grid-template-areas:
         "header"
         "nav"
@@ -66,7 +67,6 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    border-bottom: 1px solid black;
     background-color: var(--header-nav-bg);
 }
 
@@ -77,12 +77,18 @@ h1 {
 
 h2 {
     padding-left: var(--header-padding);
-    padding-bottom: var(--header-padding);
+    /* padding-bottom: var(--header-padding); */
     position: relative;
 }
 
 .nav {
     grid-area: nav;
+    border-bottom: 1px solid var(--flw-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--header-nav-bg);
+    /* margin-bottom: calc(var(--rvv)); */
 }
 
 .nav-buttons {
@@ -107,15 +113,34 @@ h2 {
     border-radius: 0.3rem;
 }
 
+.story {
+    display: none;
+}
+
 .content {
     grid-area: content;
 }
 
+footer {
+    padding: calc(0.2*var(--rvv)) 0;
+    border-top: 1px solid var(--flw-blue);
+    background-color: var(--header-nav-bg);
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* media queries: */
 
+@media screen and (min-width: 500px) {
+    .story {
+        display: flex;
+    }
+}
+
 /* styles related to the drywall square theme, only in effect at desktop-size screen widths: */
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 700px) {
 
     h1 {
         padding-left: var(--header-padding);
@@ -153,27 +178,33 @@ h2 {
 
     .nav {
         background-color: var(--header-nav-bg);
+        display: initial;
     }
 
     .nav-buttons {
-        margin-top: calc(0.7*var(--rvv));
+        margin-top: calc(0.8*var(--rvv));
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
-        gap: calc(1.1*var(--rvv));
+        align-items: flex-start;
+        gap: calc(0.8*var(--rvv));
     }
 
     .nav-button {
         width: 8rem;
         max-width: 85%;
         height: 4rem;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         border-radius: 0.8rem;
         padding: 0.6rem 0.8rem 1rem 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
         box-shadow: var(--desktop-shadow);
+        transition: transform 0.15s ease-in-out;
+    }
+
+    .nav-button:hover {
+        transform: scale(1.1);
     }
 
     .grid-container {
@@ -182,12 +213,13 @@ h2 {
         width: 100vw;
         max-width: 100vw;
         display: grid;
-        grid-template-rows: calc(3*var(--rvv)) var(--square-width) 1fr;
+        grid-template-rows: calc(3*var(--rvv)) var(--square-width) 1fr calc(var(--rvv));
         grid-template-columns: 1fr var(--square-width) 25%;
         grid-template-areas:
             "header header header"
             "square-x square-x square-x"
-            "content square-y nav";
+            "content square-y nav"
+            "footer square-y nav";
     }
     
     .square-overlap {
@@ -254,11 +286,14 @@ h2 {
         background-color: white;
     }
 
+    footer {
+        grid-area: footer;
+    }
 }
 
 /* hide t-square on smaller screens: */
 
-@media screen and (max-width: 649px) {
+@media screen and (max-width: 699px) {
     .square-x,
     .square-overlap,
     .square-y {
