@@ -42,6 +42,8 @@ time, mark, audio, video {
     --content-bg: #ff95001a;
     --p-background: #ffeed6;
     --nav-button-bg: #fbce8f;
+    --selected-nav: #fca730;
+
 }
 
 html, body {
@@ -141,6 +143,10 @@ h2 {
     align-items: center;
     cursor: pointer;
     box-shadow: var(--graphic-mobile-shadow);
+}
+
+.selected {
+    background-color: var(--selected-nav);
 }
 
 .story {

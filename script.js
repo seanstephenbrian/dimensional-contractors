@@ -123,10 +123,24 @@ const Page = (function() {
         photo.dataset.category = category;
     }
 
+    function selectNav(page) {
+        const navButtons = document.querySelectorAll('.nav-button');
+        navButtons.forEach(button => {
+            if (button.classList.contains('selected')) {
+                button.classList.remove('selected');
+            } 
+        });
+        const selectedButton = document.querySelector(`.${page}`);
+        selectedButton.classList.add('selected');
+    }
+
     function renderCommercial() {
         clearContent();
         content.classList.add('commercial-content');
         fillContent('html/commercial.html')
+            .then(() => {
+                selectNav('commercial');
+            })
             .then(() => {
                 loadFirstImage('commercial');
             })
@@ -138,6 +152,9 @@ const Page = (function() {
         content.classList.add('residential-content');
         fillContent('html/residential.html')
             .then(() => {
+                selectNav('residential');
+            })
+            .then(() => {
                 loadFirstImage('residential');
             })
             .then(addSliderListeners);
@@ -148,6 +165,9 @@ const Page = (function() {
         content.classList.add('portfolio-content');
         fillContent('html/portfolio.html')
             .then(() => {
+                selectNav('portfolio');
+            })
+            .then(() => {
                 loadFirstImage('portfolio');
             })
             .then(addSliderListeners);
@@ -156,13 +176,19 @@ const Page = (function() {
     function renderStory() {
         clearContent();
         content.classList.add('story-content');
-        fillContent('html/story.html');
+        fillContent('html/story.html')
+            .then(() => {
+                selectNav('story');
+            });
     }
     
     function renderContact() {
         clearContent();
         content.classList.add('contact-content');
-        fillContent('html/contact.html');
+        fillContent('html/contact.html')
+            .then(() => {
+                selectNav('contact');
+            });
     }
 
     return { renderHome }
