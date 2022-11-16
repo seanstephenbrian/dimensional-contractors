@@ -162,7 +162,8 @@ h2 {
     padding-bottom: calc(0.8*var(--rvv));
 }
 
-p {
+p,
+.contact-1 {
     background-color: var(--p-background);
     font-size: calc(0.4*var(--rvv));
     margin: calc(0.8*var(--rvv));
@@ -221,8 +222,45 @@ p {
 }
 
 .contact-1 {
+    max-width: fit-content;
     font-size: calc(0.55*var(--rvv));
-    text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: calc(0.3*var(--rvv));
+    grid-template-columns: 1.5fr 2fr;
+    grid-column-gap: calc(0.3*var(--rvv));
+    grid-template-areas:
+        "joe joe-email"
+        "mark mark-email";
+}
+
+.joe {
+    grid-area: joe;
+}
+
+.joe-email {
+    grid-area: joe-email;
+}
+
+.mark {
+    grid-area: mark;
+}
+
+.mark-email {
+    grid-area: mark-email;
+}
+
+.joe,
+.mark {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.joe-email,
+.mark-email {
+    display: flex;
+    align-items: center;
 }
 
 .contact-2 {
