@@ -93,6 +93,7 @@ const Page = (function() {
 
     function renderHome() {
         clearContent();
+        clearNavSelection();
         content.classList.add('home-content');
         fillContent('html/home.html')
             .then(addHomeListeners);
@@ -128,16 +129,22 @@ const Page = (function() {
         photo.dataset.category = category;
     }
 
-    function selectNav(page) {
+    function clearNavSelection() {
         const navButtons = document.querySelectorAll('.nav-button');
         navButtons.forEach(button => {
             if (button.classList.contains('selected')) {
                 button.classList.remove('selected');
             } 
         });
+    }
+
+    function selectNav(page) {
+        clearNavSelection();
         const selectedButton = document.querySelector(`.${page}`);
         selectedButton.classList.add('selected');
     }
+
+    
 
     function renderCommercial() {
         clearContent();
