@@ -101,12 +101,14 @@ header {
 }
 
 h1 {
+    margin-top: calc(0.2*var(--rvv));
     font-size: calc(0.8*var(--rvv));
     padding-left: var(--header-padding);
     cursor: pointer;
 }
 
 h2 {
+    margin-top: calc(-0.25*var(--rvv));
     padding-left: var(--header-padding);
     padding-bottom: var(--header-padding);
 }
