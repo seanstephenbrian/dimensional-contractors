@@ -293,12 +293,41 @@ const Photos = (function() {
         caption.textContent = nextPhoto.caption;
     }
 
-    // all photos:
-    addPhoto('pags-ext.jpg', `Pag's Wine Bar (Doylestown, PA)`, 'commercial', false);
-    addPhoto('pags-int.jpg', `Pag's Pub (Doylestown, PA)`, 'commercial', true);
-    addPhoto('pags-int-2.jpg', `Pag's Pub (Doylestown, PA)`, 'residential', true);
-    addPhoto('santucci.jpg', `Santucci's Square Pizza (Warminster, PA)`, 'residential', false);
-    addPhoto('serenity.jpg', `Serenity Day Spa (Doylestown, PA)`, 'commercial', true);
+    // commercial jobs:
+    addPhoto('commercial/pags-ext.jpg', `Pag's Wine Bar (Doylestown, PA)`, 'commercial', true);
+    addPhoto('commercial/pags-int.jpg', `Pag's Pub (Doylestown, PA)`, 'commercial', true);
+    addPhoto('commercial/pags-int-2.jpg', `Pag's Pub (Doylestown, PA)`, 'commercial', true);
+    addPhoto('commercial/santucci.jpg', `Santucci's Square Pizza (Warminster, PA)`, 'commercial', false);
+    addPhoto('commercial/serenity.jpg', `Serenity Day Spa (Doylestown, PA)`, 'commercial', false);
+
+    // residential jobs:
+    addPhoto('residential/deck-5.jpg', '', 'residential', true);
+    addPhoto('residential/deck-1.jpg', '', 'residential', true);
+    addPhoto('residential/deck-4.jpg', '', 'residential', true);
+    addPhoto('residential/deck-6.jpg', '', 'residential', true);
+    addPhoto('residential/exterior-5.jpg', '', 'residential', true);
+    addPhoto('residential/kitchen-1.jpg', '', 'residential', true);
+    addPhoto('residential/patio-3.jpg', '', 'residential', true);
+    addPhoto('residential/patio-4.jpg', '', 'residential', true);
+    addPhoto('residential/patio-5.jpg', '', 'residential', true);
+    addPhoto('residential/patio-6.jpg', '', 'residential', true);
+    addPhoto('residential/pond-1.jpg', '', 'residential', true);
+    addPhoto('residential/porch-1.jpg', '', 'residential', true);
+
+    addPhoto('residential/bathroom-1.jpg', '', 'residential', false);
+    addPhoto('residential/deck-2.jpg', '', 'residential', false);
+    addPhoto('residential/deck-3.jpg', '', 'residential', false);
+    addPhoto('residential/deck-7.jpg', '', 'residential', false);
+    addPhoto('residential/exterior-1.jpg', '', 'residential', false);
+    addPhoto('residential/exterior-2.jpg', '', 'residential', false);
+    addPhoto('residential/exterior-3.jpg', '', 'residential', false);
+    addPhoto('residential/exterior-4.jpg', '', 'residential', false);
+    addPhoto('residential/framing-1.jpg', '', 'residential', false);
+    addPhoto('residential/framing-2.jpg', '', 'residential', false);
+    addPhoto('residential/kitchen-2.jpg', '', 'residential', false);
+    addPhoto('residential/patio-1.jpg', '', 'residential', false);
+    addPhoto('residential/patio-2.jpg', '', 'residential', false);
+    addPhoto('residential/porch-2.jpg', '', 'residential', false);
 
     return { 
         getAllPhotos,
