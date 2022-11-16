@@ -42,7 +42,7 @@ time, mark, audio, video {
     --content-bg: #ff95001a;
     --p-background: #ffeed6;
     --nav-button-bg: #fbce8f;
-    --selected-nav: #fca730;
+    --selected-nav: #f9980f;
 
 }
 
@@ -129,7 +129,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: calc(0.3*var(--rvv)) calc(0.8*var(--rvv)) calc(0.6*var(--rvv));
+    margin: calc(0.3*var(--rvv)) calc(1*var(--rvv)) calc(0.6*var(--rvv)) calc(0.6*var(--rvv));
 }
 
 .nav-button {
@@ -147,6 +147,7 @@ h2 {
 
 .selected {
     background-color: var(--selected-nav);
+    transform: scale(1.1);
 }
 
 .story {
