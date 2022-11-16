@@ -103,6 +103,11 @@ const Page = (function() {
             const contactUs = document.querySelector('.inline-contact');
             contactUs.addEventListener('click', renderContact);
         }
+
+    function showLoadingIcon() {
+        const photo = document.querySelector('.photo');
+    }
+    // LEFT OFF HERE
     
     function loadFirstImage(category) {
         let selectedPhotos;
