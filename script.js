@@ -258,8 +258,6 @@ const Photos = (function() {
         const currentPhoto = document.querySelector('.photo');
         const currentCategory = currentPhoto.dataset.category;
 
-        Page.showLoadingIcon();
-
         let selectedPhotos;
         if (currentCategory === 'commercial') {
             selectedPhotos = getCommercialPhotos();
