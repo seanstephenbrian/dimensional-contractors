@@ -171,21 +171,21 @@ p,
 }
 
 .home-1 {
-    margin-right: 25%;
+    font-size: calc(0.5*var(--rvv));
 }
 
 .home-2 {
-    margin-left: 25%;
+    margin-left: 20%;
+    margin-right: 10%;
 }
 
 .home-3 {
-    margin-left: 7%;
-    margin-right: 7%;
+    margin-left: 10%;
+    margin-right: 20%;
 }
 
 .home-4 {
-    margin-left: 15%;
-    margin-right: 15%;
+    font-size: calc(0.45*var(--rvv));
 }
 
 .commercial-1 {
