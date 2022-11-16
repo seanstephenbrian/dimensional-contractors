@@ -107,8 +107,8 @@ const Page = (function() {
 
     function showLoadingIcon() {
         const photo = document.querySelector('.photo');
+        photo.src = 'img/svg/loading.svg';
     }
-    // LEFT OFF HERE
     
     function loadFirstImage(category) {
         let selectedPhotos;
@@ -150,6 +150,7 @@ const Page = (function() {
         clearContent();
         content.classList.add('commercial-content');
         fillContent('html/commercial.html')
+            .then(showLoadingIcon)
             .then(() => {
                 selectNav('commercial');
             })
@@ -163,6 +164,7 @@ const Page = (function() {
         clearContent();
         content.classList.add('residential-content');
         fillContent('html/residential.html')
+            .then(showLoadingIcon)
             .then(() => {
                 selectNav('residential');
             })
@@ -176,6 +178,7 @@ const Page = (function() {
         clearContent();
         content.classList.add('portfolio-content');
         fillContent('html/portfolio.html')
+            .then(showLoadingIcon)
             .then(() => {
                 selectNav('portfolio');
             })
@@ -203,7 +206,10 @@ const Page = (function() {
             });
     }
 
-    return { renderHome }
+    return { 
+        renderHome,
+        showLoadingIcon 
+    }
 })();
 
 const Photos = (function() {
@@ -248,8 +254,11 @@ const Photos = (function() {
     }
 
     function changePhoto(direction) {
+        
         const currentPhoto = document.querySelector('.photo');
         const currentCategory = currentPhoto.dataset.category;
+
+        Page.showLoadingIcon();
 
         let selectedPhotos;
         if (currentCategory === 'commercial') {
