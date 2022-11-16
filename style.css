@@ -31,16 +31,17 @@ time, mark, audio, video {
     --mobile-shadow: 0.8px 1.6px 1.6px hsl(0deg 0% 0% / 0.45);
     --graphic-mobile-shadow: 2px 2px 0 var(--graphic-shadow);
 
-    --graphic-shadow: #0f5787;
+    --graphic-shadow: #1e4d6c;
     --flw-blue: #1e4d6c;
     --flw-orange: #e1b270;
 
     --light-blue: #006db631;
     --lighter-blue: #006db613;
-    --darker-blue: #005f9f80;
+    --darker-blue: #005f9f60;
     --inline-link: #005f9f;
     --content-bg: #ff95001a;
-    --nav-button-bg: #fddbab;
+    --p-background: #ffeed6;
+    --nav-button-bg: #fbce8f;
 }
 
 html, body {
@@ -103,7 +104,7 @@ h2 {
 
 .nav {
     grid-area: nav;
-    border-bottom: 1px solid var(--flw-blue);
+    border-bottom: 2px solid var(--flw-blue);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,7 +116,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: calc(0.3*var(--rvv)) calc(0.8*var(--rvv));
+    margin: calc(0.3*var(--rvv)) calc(0.8*var(--rvv)) calc(0.6*var(--rvv));
 }
 
 .nav-button {
@@ -140,14 +141,54 @@ h2 {
     background-color: var(--lighter-blue);
     display: flex;
     flex-direction: column;
-    padding-bottom: calc(0.5*var(--rvv));
+    padding-bottom: calc(0.8*var(--rvv));
 }
 
 p {
+    background-color: var(--p-background);
     font-size: calc(0.4*var(--rvv));
-    margin: calc(0.4*var(--rvv)) calc(0.4*var(--rvv)) 0;
+    margin: calc(0.8*var(--rvv));
+    margin-bottom: 0;
+    border: 1px solid var(--flw-blue);
+    padding: calc(0.3*var(--rvv));
+    box-shadow: var(--graphic-mobile-shadow);
 }
 
+.home-1 {
+    margin-right: 25%;
+}
+
+.home-2 {
+    margin-left: 25%;
+}
+
+.home-3 {
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.home-4 {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.commercial-1 {
+    margin-left: 15%;
+    margin-right: 5%;
+}
+
+.commercial-2 {
+    margin-left: 5%;
+    margin-right: 15%;
+}
+
+.residential-1 {
+    margin-right: 10%;
+}
+
+.residential-2 {
+    margin-left: 15%;
+}
 
 .slider {
     align-self: center;
@@ -163,20 +204,6 @@ p {
     max-height: 100%;
     border: 1px solid black;
     box-shadow: var(--graphic-desktop-shadow);
-}
-
-.home-photo-container {
-    margin: calc(0.8*var(--rvv)) 0;
-    display: flex;
-    justify-content: center;
-}
-
-.home-photo-container-2 {
-    display: none;
-}
-
-.home-photo {
-    width: 50%;
 }
 
 .control-bar {
@@ -298,6 +325,16 @@ footer {
     .nav-button:hover,
     .contact-button:hover {
         transform: scale(1.1);
+    }
+
+    p {
+        box-shadow: var(--graphic-desktop-shadow);
+        background-color: var(--p-background);
+        transition: transform 0.1s ease-in-out;
+    }
+
+    p:hover {
+        transform: scale(1.03);
     }
 
     .grid-container {
