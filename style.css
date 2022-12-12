@@ -42,7 +42,7 @@ time, mark, audio, video {
     --darker-blue: #005f9f60;
     --inline-link: #005f9f;
     --content-bg: #ff95001a;
-    --p-background: #ffeed6;
+    --p-background: #ffe8c8;
     --nav-button-bg: #fbce8f;
     --selected-nav: #ffaa32;
 }
@@ -133,17 +133,19 @@ h2 {
     background-color: var(--nav-button-bg);
     width: fit-content;
     font-size: 0.75rem;
-    border: 1px solid var(--flw-blue);
+    /* border: 1px solid var(--flw-blue); */
+    border-radius: 0.5rem;
     padding: 0.1rem 0.4rem 0.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: var(--graphic-mobile-shadow);
+    box-shadow: var(--mobile-shadow);
 }
 
 .selected {
     background-color: var(--selected-nav);
+    box-shadow: var(--desktop-shadow-hover) !important;
     transform: scale(1.1);
 }
 
@@ -167,9 +169,10 @@ p,
     font-size: calc(0.4*var(--rvv));
     margin: calc(0.8*var(--rvv));
     margin-bottom: 0;
-    border: 1px solid var(--flw-blue);
+    /* border: 1px solid var(--flw-blue); */
+    border-radius: 0.5rem;
     padding: calc(0.3*var(--rvv));
-    box-shadow: var(--graphic-mobile-shadow);
+    box-shadow: var(--mobile-shadow);
 }
 
 
@@ -377,7 +380,7 @@ footer {
         box-shadow: var(--desktop-shadow);
     }
 
-    .nav-button:hover,
+    .nav-button:not(.selected):hover,
     p:hover,
     .contact-1:hover {
         box-shadow: var(--desktop-shadow-hover);
