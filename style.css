@@ -31,6 +31,7 @@ time, mark, audio, video {
     
     /* --graphic-desktop-shadow: 4px 4px 0 var(--graphic-shadow); */
     --mobile-shadow: 0.8px 1.6px 1.6px hsl(0deg 0% 0% / 0.45);
+    --mobile-shadow-hover: 1.2px 2.4px 2.4px hsl(0deg 0% 0% / 0.46);
     /* --graphic-mobile-shadow: 2px 2px 0 var(--graphic-shadow); */
 
     --graphic-shadow: #1e4d6c;
@@ -145,7 +146,7 @@ h2 {
 
 .selected {
     background-color: var(--selected-nav);
-    box-shadow: var(--desktop-shadow-hover) !important;
+    box-shadow: var(--mobile-shadow-hover) !important;
     transform: scale(1.1);
 }
 
@@ -231,12 +232,9 @@ p,
     margin-right: 1rem;
 }
 
-.contact-2 {
-    font-size: calc(0.5*var(--rvv));
-}
-
+.contact-2,
 .contact-3 {
-    font-size: calc(0.6*var(--rvv));
+    font-size: calc(0.5*var(--rvv));
 }
 
 .story-1 {
@@ -265,8 +263,9 @@ p,
 .photo {
     width: 100%;
     max-height: 100%;
-    border: 1px solid black;
-    box-shadow: var(--graphic-desktop-shadow);
+    /* border: 1px solid black; */
+    border-radius: 0.5rem;
+    box-shadow: var(--desktop-shadow);
 }
 
 .control-bar {
@@ -385,8 +384,13 @@ footer {
     .contact-1:hover {
         box-shadow: var(--desktop-shadow-hover);
         transition: box-shadow 0.1s ease-in-out;
-        transform: scale(1.05);
+        transform: scale(1.03);
         transition: transform 0.1s ease-in-out;
+    }
+
+    .selected {
+        transform: scale(1.03);
+        box-shadow: var(--desktop-shadow-hover) !important;
     }
 
     .inline-link:hover {
