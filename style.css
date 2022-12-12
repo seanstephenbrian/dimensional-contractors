@@ -37,6 +37,7 @@ time, mark, audio, video {
     --graphic-shadow: #1e4d6c;
     --flw-blue: #1e4d6c;
     --flw-orange: #e1b270;
+    --flw-red: #974643;
 
     --light-blue: #006db631;
     --lighter-blue: #006db613;
@@ -45,7 +46,8 @@ time, mark, audio, video {
     --content-bg: #ff95001a;
     --p-background: #ffe8c8;
     --nav-button-bg: #fbce8f;
-    --selected-nav: #ffaa32;
+    /* --selected-nav: #ffaa32; */
+    --selected-nav: #ee746f;
 }
 
 html, body {
