@@ -26,10 +26,12 @@ time, mark, audio, video {
     --header-padding: calc(.3*var(--rvv));
     --nav-height: calc(1.6*var(--rvv));
 
-    --desktop-shadow: 1.6px 3.2px 3.2px hsl(0deg 0% 0% / 0.45);
-    --graphic-desktop-shadow: 4px 4px 0 var(--graphic-shadow);
+    --desktop-shadow: 1.4px 2.9px 2.9px hsl(0deg 0% 0% / 0.46);
+    --desktop-shadow-hover: 3.2px 6.4px 6.4px hsl(0deg 0% 0% / 0.40);
+    
+    /* --graphic-desktop-shadow: 4px 4px 0 var(--graphic-shadow); */
     --mobile-shadow: 0.8px 1.6px 1.6px hsl(0deg 0% 0% / 0.45);
-    --graphic-mobile-shadow: 2px 2px 0 var(--graphic-shadow);
+    /* --graphic-mobile-shadow: 2px 2px 0 var(--graphic-shadow); */
 
     --graphic-shadow: #1e4d6c;
     --flw-blue: #1e4d6c;
@@ -170,41 +172,6 @@ p,
     box-shadow: var(--graphic-mobile-shadow);
 }
 
-.home-1 {
-    font-size: calc(0.5*var(--rvv));
-}
-
-.home-2 {
-    margin-left: 20%;
-    margin-right: 10%;
-}
-
-.home-3 {
-    margin-left: 10%;
-    margin-right: 20%;
-}
-
-.home-4 {
-    font-size: calc(0.45*var(--rvv));
-}
-
-.commercial-1 {
-    margin-left: 15%;
-    margin-right: 7%;
-}
-
-.commercial-2 {
-    margin-left: 7%;
-    margin-right: 15%;
-}
-
-.residential-1 {
-    margin-right: 10%;
-}
-
-.residential-2 {
-    margin-left: 15%;
-}
 
 .contact-content {
     display: flex;
@@ -407,15 +374,16 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
-        box-shadow: var(--graphic-desktop-shadow);
+        box-shadow: var(--desktop-shadow);
     }
 
-    .nav-button {
-        transition: transform 0.15s ease-in-out;
-    }
-
-    .nav-button:hover {
-        transform: scale(1.1);
+    .nav-button:hover,
+    p:hover,
+    .contact-1:hover {
+        box-shadow: var(--desktop-shadow-hover);
+        transition: box-shadow 0.1s ease-in-out;
+        transform: scale(1.05);
+        transition: transform 0.1s ease-in-out;
     }
 
     .inline-link:hover {
@@ -457,15 +425,16 @@ footer {
 
     p,
     .contact-1 {
-        box-shadow: var(--graphic-desktop-shadow);
+        box-shadow: var(--desktop-shadow);
         background-color: var(--p-background);
         transition: transform 0.1s ease-in-out;
     }
 
-    p:hover,
+    /* p:hover,
     .contact-1:hover {
+        transition: transform 0.1s ease-in-out;
         transform: scale(1.03);
-    }
+    } */
 
     .grid-container {
         position: absolute;
